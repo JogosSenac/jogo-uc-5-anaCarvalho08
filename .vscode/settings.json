@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Baller Master.sln"
+    "dotnet.defaultSolution": "jogo-uc-5-anaCarvalho08.sln"
 }

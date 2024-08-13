@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public bool estaPulando = false;
     public Vector3 posInicial;
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
 
     void Start()
     {
         posInicial = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -24,6 +26,16 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
             estaPulando = true;
         }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            sprite.flipX = false;
+        }
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            sprite.flipX = true;
+        }
+        
     }
 
      private void FixedUpdate() 
@@ -37,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Floor"))
         {
             estaPulando = false;
+        }
+
+        if(other.gameObject.CompareTag("Ball"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }

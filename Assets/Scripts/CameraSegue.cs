@@ -25,7 +25,7 @@ public class CameraSegue : MonoBehaviour
 
         if(pX > 0 && pY > -5 && pX < 30)
         {
-            transform.position = new Vector3(pX, 0, -1);
+            transform.position = new Vector3(pX, (float)-0.52, -1);
         }
 
         if(player == null)
