@@ -23,7 +23,7 @@ public class CameraSegue : MonoBehaviour
             pY = player.transform.position.y;
         }
 
-        if(pX > 0 && pY > -5 && pX < 30)
+        if(pX > 0 && pY > -5 && pX < 33)
         {
             transform.position = new Vector3(pX, (float)-0.52, -1);
         }

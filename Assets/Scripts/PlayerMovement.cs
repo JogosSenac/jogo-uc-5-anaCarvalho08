@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public int velocidade;
     public int forcaPulo;
     public bool estaPulando = false;
+    //public int bolas;
     public Vector3 posInicial;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -21,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //Atirar();
+        
         if(Input.GetKeyDown(KeyCode.Space) && !estaPulando)
         {
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
@@ -38,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-     private void FixedUpdate() 
+    private void FixedUpdate() 
     {
         moveH = Input.GetAxis("Horizontal");
         transform.position += new Vector3(moveH * velocidade * Time.deltaTime, 0, 0);
@@ -51,9 +56,18 @@ public class PlayerMovement : MonoBehaviour
             estaPulando = false;
         }
 
-        if(other.gameObject.CompareTag("Ball"))
+        /*if(other.gameObject.CompareTag("Ball"))
         {
             Destroy(other.gameObject);
-        }
+            bolas ++;
+        }*/
     }
+
+    /*void Atirar()
+    {
+        if(Input.GetMouseButtonDown(0) && bolas>0)
+        {
+            bolas--;
+        }
+    }*/
 }
