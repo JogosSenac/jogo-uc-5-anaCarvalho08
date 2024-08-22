@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    //public GameObject telaMorte;
+    public GameObject player;
+    public PlayerMovement playerMovement;
+    public GameObject prefab;
 
     void Start()
     {
-        
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -18,6 +22,11 @@ public class Menu : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             PauseMenu();
+        }
+
+        if(!playerMovement.VerificaSePlayerEstaVivo())
+        {
+            //TelaDeMorte();
         }
     }
 
@@ -46,5 +55,18 @@ public class Menu : MonoBehaviour
     {
         pauseMenu.SetActive (false);
         Time.timeScale = 1.0f;
+    }
+
+    public void TelaDeMorte()
+    {
+        //telaMorte.SetActive(true);
+    }
+
+    public void Replay()
+    {
+        Instantiate(prefab, playerMovement.PlayerPositionInicial(), Quaternion.identity);
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        //telaMorte.SetActive(false);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public int velocidade;
     public int forcaPulo;
     public bool estaPulando = false;
-    //public int bolas;
+    public bool estaVivo = true;
     public Vector3 posInicial;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    public GameObject prefab;
 
     void Start()
     {
@@ -24,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Atirar();
-        
         if(Input.GetKeyDown(KeyCode.Space) && !estaPulando)
         {
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
@@ -40,6 +40,14 @@ public class PlayerMovement : MonoBehaviour
         {
             sprite.flipX = true;
         }
+
+        /*if(!estaVivo)
+        {
+            Destroy(this.gameObject);
+            Instantiate(prefab, PlayerPositionInicial(), Quaternion.identity);
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerMovement = player.GetComponent<PlayerMovement>();
+        }*/
         
     }
 
@@ -56,18 +64,25 @@ public class PlayerMovement : MonoBehaviour
             estaPulando = false;
         }
 
-        /*if(other.gameObject.CompareTag("Ball"))
+        if(other.gameObject.CompareTag("PassaFase1"))
         {
-            Destroy(other.gameObject);
-            bolas ++;
-        }*/
+            SceneManager.LoadScene ("Fase2");
+        }
+
+        if(other.gameObject.CompareTag("Buraco"))
+        {
+            estaVivo = false;
+            Destroy(this.gameObject);
+        }
     }
 
-    /*void Atirar()
+    public bool VerificaSePlayerEstaVivo()
     {
-        if(Input.GetMouseButtonDown(0) && bolas>0)
-        {
-            bolas--;
-        }
-    }*/
+        return estaVivo;
+    }
+
+    public Vector3 PlayerPositionInicial()
+    {
+        return posInicial;
+    }
 }
