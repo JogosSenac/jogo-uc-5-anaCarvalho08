@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ba22d255931b1f34583f6ff1d24e4192, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -525,10 +524,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 108755935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.093717724, y: 0.6131827}
-  m_AnchorMax: {x: 0.38700002, y: 0.85800004}
-  m_AnchoredPosition: {x: -0.1499939, y: 0}
-  m_SizeDelta: {x: 2.743988, y: 3.6963043}
+  m_AnchorMin: {x: 0.0518042, y: 0.61318266}
+  m_AnchorMax: {x: 0.44858047, y: 0.86300004}
+  m_AnchoredPosition: {x: 1, y: -0.8481293}
+  m_SizeDelta: {x: 10.077599, y: 1.6963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439033238
 MonoBehaviour:
@@ -552,8 +551,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Baller Master
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4ebbce846bd62e54bb683cafcf4d3f15, type: 2}
-  m_sharedMaterial: {fileID: 4624048370436903111, guid: 4ebbce846bd62e54bb683cafcf4d3f15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a19830f201836949a210a5fc7985daf, type: 2}
+  m_sharedMaterial: {fileID: -2266468940238049988, guid: 0a19830f201836949a210a5fc7985daf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -613,7 +612,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.0845642, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -832,6 +831,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  player: {fileID: 0}
+  playerMovement: {fileID: 0}
+  prefab: {fileID: 0}
 --- !u!1 &1329595638
 GameObject:
   m_ObjectHideFlags: 0

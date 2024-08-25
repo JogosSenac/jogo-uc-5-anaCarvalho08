@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Buraco"))
         {
             estaVivo = false;
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 

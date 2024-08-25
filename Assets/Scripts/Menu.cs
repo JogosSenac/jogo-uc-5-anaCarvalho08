@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    //public GameObject telaMorte;
+    public GameObject telaMorte;
     public GameObject player;
     public PlayerMovement playerMovement;
     public GameObject prefab;
@@ -26,7 +26,8 @@ public class Menu : MonoBehaviour
 
         if(!playerMovement.VerificaSePlayerEstaVivo())
         {
-            //TelaDeMorte();
+            Destroy(player);
+            TelaDeMorte();
         }
     }
 
@@ -59,7 +60,7 @@ public class Menu : MonoBehaviour
 
     public void TelaDeMorte()
     {
-        //telaMorte.SetActive(true);
+        telaMorte.SetActive(true);
     }
 
     public void Replay()
@@ -67,6 +68,6 @@ public class Menu : MonoBehaviour
         Instantiate(prefab, playerMovement.PlayerPositionInicial(), Quaternion.identity);
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
-        //telaMorte.SetActive(false);
+        telaMorte.SetActive(false);
     }
 }
