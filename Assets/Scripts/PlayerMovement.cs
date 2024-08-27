@@ -12,10 +12,17 @@ public class PlayerMovement : MonoBehaviour
     public int forcaPulo;
     public bool estaPulando = false;
     public bool estaVivo = true;
+    public int vida = 3;
     public Vector3 posInicial;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     public GameObject prefab;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -28,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !estaPulando)
         {
+            audioManager.PlaySFX(audioManager.jump);
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
             estaPulando = true;
         }
@@ -41,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
             sprite.flipX = true;
         }
 
+        if(vida<=0)
+        {
+            estaVivo = false;
+        }
         /*if(!estaVivo)
         {
             Destroy(this.gameObject);
@@ -69,10 +81,20 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene ("Fase2");
         }
 
+        if(other.gameObject.CompareTag("PassaFase2"))
+        {
+            SceneManager.LoadScene("Fase3");
+        }
+
         if(other.gameObject.CompareTag("Buraco"))
         {
             estaVivo = false;
             //Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Boss"))
+        {
+            vida--;
         }
     }
 

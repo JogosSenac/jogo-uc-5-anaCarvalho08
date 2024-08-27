@@ -8,6 +8,12 @@ public class PlayerTiro : MonoBehaviour
     public GameObject mira;
     public bool dirPlayer;
     public int bolas;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -30,6 +36,7 @@ public class PlayerTiro : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && bolas>0)
         {
+            audioManager.PlaySFX(audioManager.shoot);
             Atira(dirPlayer);
         }
     }
