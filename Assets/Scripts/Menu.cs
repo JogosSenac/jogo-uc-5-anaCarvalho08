@@ -40,6 +40,7 @@ public class Menu : MonoBehaviour
             Destroy(player);
             TelaDeMorte();
         }
+
     }
 
     public void PlayGame()
@@ -77,6 +78,7 @@ public class Menu : MonoBehaviour
     public void Replay()
     {
         telaMorte.SetActive(false);
+        SceneManager.LoadScene ("Fase1");
 
         Instantiate(prefabPlayer, playerMovement.PlayerPositionInicial(), Quaternion.identity);
         player = GameObject.FindGameObjectWithTag("Player");
@@ -96,6 +98,6 @@ public class Menu : MonoBehaviour
             bolaScript2 = bola2.GetComponent<Bola>();
         }
 
-        SceneManager.LoadScene ("Fase1");
+        
     }
 }

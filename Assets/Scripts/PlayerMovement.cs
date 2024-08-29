@@ -16,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 posInicial;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private PlayerTiro tiro;
     public GameObject prefab;
     AudioManager audioManager;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        tiro = GameObject.FindObjectOfType<PlayerTiro>().GetComponent<PlayerTiro>();
     }
 
     void Start()
@@ -95,6 +97,12 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Boss"))
         {
             vida--;
+        }
+
+        if(other.gameObject.CompareTag("Ball"))
+        {
+            Destroy(other.gameObject);
+            tiro.AddBolas();
         }
     }
 

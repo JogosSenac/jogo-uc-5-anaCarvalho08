@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5611321861564506010}
   - component: {fileID: 1994385375161837137}
   - component: {fileID: 2410723508299355321}
-  - component: {fileID: 7734834668682913779}
   - component: {fileID: -2606166554576720309}
   m_Layer: 0
   m_Name: Bola
@@ -122,27 +121,6 @@ CircleCollider2D:
   m_Offset: {x: 0.011548281, y: 0.040034104}
   serializedVersion: 2
   m_Radius: 0.1144402
---- !u!95 &7734834668682913779
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3516671719196411813}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02fbd1ca524c1ca43addd6af8169391c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-2606166554576720309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posInicial: {x: 0, y: 0, z: 0}
+  target: {x: 0, y: 0, z: 0}
+  velocidade: 0
+  distancia: 0

@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2255113773593650489}
   - component: {fileID: 7370362593830506519}
   - component: {fileID: 7972075084172798669}
-  - component: {fileID: 4213598169202594501}
   - component: {fileID: 3411127697150287732}
   m_Layer: 0
   m_Name: Player
@@ -210,23 +209,9 @@ MonoBehaviour:
   forcaPulo: 7
   estaPulando: 0
   estaVivo: 1
+  vida: 3
   posInicial: {x: 0, y: 0, z: 0}
---- !u!114 &4213598169202594501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4136765792557421775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dc038c1386ef70409a2019ff3786e33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiro: {fileID: 6086677462911416337, guid: 63c4c182cb7bd3a4f8d47e553d020041, type: 3}
-  mira: {fileID: 2847498001637572311}
-  dirPlayer: 0
-  bolas: 0
+  prefab: {fileID: 0}
 --- !u!95 &3411127697150287732
 Animator:
   serializedVersion: 5

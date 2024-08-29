@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerTiro : MonoBehaviour
@@ -13,11 +14,12 @@ public class PlayerTiro : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        mira = GameObject.Find("Mira");
     }
 
     void Start()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -39,19 +41,36 @@ public class PlayerTiro : MonoBehaviour
             audioManager.PlaySFX(audioManager.shoot);
             Atira(dirPlayer);
         }
+
+        if(mira == null)
+        {
+            mira = GameObject.Find("Mira");
+        }
+
+        if(audioManager == null)
+        {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
     }
 
     void Atira(bool direcao)
     {
         bolas --;
+        Vector3 offSet1 = new Vector3(mira.transform.position.x + 1.0f, mira.transform.position.y, 0);
+        Vector3 offSet2 = new Vector3(mira.transform.position.x - 1.0f, mira.transform.position.y, 0);
         if(direcao)
         {
-            Instantiate(tiro, mira.transform.position, Quaternion.Euler(0, 0, 180));
+            Instantiate(tiro, offSet1, Quaternion.Euler(0, 0, 180));
         }
         else
         {
-            Instantiate(tiro, mira.transform.position, Quaternion.Euler(0, 0, -180)).GetComponent<Tiro>().DirecaoTiro(-1);
+            Instantiate(tiro, offSet2, Quaternion.Euler(0, 0, -180)).GetComponent<Tiro>().DirecaoTiro(-1);
         }
+    }
+
+    public void AddBolas()
+    {
+        bolas++;
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
@@ -59,7 +78,7 @@ public class PlayerTiro : MonoBehaviour
         if(other.gameObject.CompareTag("Ball"))
         {
             Destroy(other.gameObject);
-            bolas ++;
+            bolas++;
         }
     }
 }
