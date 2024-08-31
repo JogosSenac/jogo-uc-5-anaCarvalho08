@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public int forcaPulo;
     public bool estaPulando = false;
     public bool estaVivo = true;
-    public int vida = 3;
+    public int vida = 1;
     public Vector3 posInicial;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;

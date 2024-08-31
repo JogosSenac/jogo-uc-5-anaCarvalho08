@@ -19,6 +19,14 @@ public class Tiro : MonoBehaviour
         transform.position += new Vector3(dirTiro * velocidade * Time.deltaTime, 0, 0);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Boss"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private IEnumerator Contador()
     {
         yield return new WaitForSeconds(3.0f);

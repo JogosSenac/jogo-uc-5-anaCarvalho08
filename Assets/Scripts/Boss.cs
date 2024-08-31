@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float moveSpeed;
     private Rigidbody2D rb;
     public int vida = 3;
 
@@ -19,10 +19,12 @@ public class Boss : MonoBehaviour
         if(EstaViradoParaDir())
         {
             rb.velocity = new Vector2(moveSpeed, 0f);
+            transform.localScale = new Vector3(2, 2, 1);
         }
         else
         {
             rb.velocity = new Vector2(-moveSpeed, 0f);
+            transform.localScale = new Vector3(-2, 2, 1);
         }
 
         if(vida<=0)

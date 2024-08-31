@@ -7,6 +7,8 @@ public class PlayerTiro : MonoBehaviour
 {
     public GameObject tiro;
     public GameObject mira;
+    public GameObject menu;
+    public Menu menuScript;
     public bool dirPlayer;
     public int bolas;
     AudioManager audioManager;
@@ -15,6 +17,8 @@ public class PlayerTiro : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         mira = GameObject.Find("Mira");
+        menu = GameObject.FindGameObjectWithTag("Menu");
+        menuScript = menu.GetComponent<Menu>();
     }
 
     void Start()
@@ -22,7 +26,6 @@ public class PlayerTiro : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -51,11 +54,27 @@ public class PlayerTiro : MonoBehaviour
         {
             audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
+
+        if (menu == null)
+        {
+            menu = GameObject.FindGameObjectWithTag("Menu");
+        }
+
+        if (menuScript == null)
+        {
+            menuScript = menu.GetComponent<Menu>();
+        }
+
+        if (menuScript.RetornaReplay())
+        {
+            bolas = 0;
+        }
+
     }
 
     void Atira(bool direcao)
     {
-        bolas --;
+        bolas--;
         Vector3 offSet1 = new Vector3(mira.transform.position.x + 1.0f, mira.transform.position.y, 0);
         Vector3 offSet2 = new Vector3(mira.transform.position.x - 1.0f, mira.transform.position.y, 0);
         if(direcao)
@@ -80,5 +99,10 @@ public class PlayerTiro : MonoBehaviour
             Destroy(other.gameObject);
             bolas++;
         }
+    }
+
+    public int QuantidadeBolas()
+    {
+        return bolas;
     }
 }

@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject telaMorte;
+    public bool replay = false;
 
     public GameObject player;
     public PlayerMovement playerMovement;
@@ -40,7 +41,6 @@ public class Menu : MonoBehaviour
             Destroy(player);
             TelaDeMorte();
         }
-
     }
 
     public void PlayGame()
@@ -77,6 +77,7 @@ public class Menu : MonoBehaviour
 
     public void Replay()
     {
+        replay = true;
         telaMorte.SetActive(false);
         SceneManager.LoadScene ("Fase1");
 
@@ -97,7 +98,10 @@ public class Menu : MonoBehaviour
             bola2 = GameObject.FindGameObjectWithTag("Ball");
             bolaScript2 = bola2.GetComponent<Bola>();
         }
+    }
 
-        
+    public bool RetornaReplay()
+    {
+        return replay;
     }
 }

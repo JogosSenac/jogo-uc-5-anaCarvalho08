@@ -12,6 +12,7 @@ TagManager:
   - PassaFase2
   - Boss
   - Audio
+  - Menu
   layers:
   - Default
   - TransparentFX
