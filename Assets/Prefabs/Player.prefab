@@ -209,9 +209,10 @@ MonoBehaviour:
   forcaPulo: 7
   estaPulando: 0
   estaVivo: 1
-  vida: 3
+  vida: 1
   posInicial: {x: 0, y: 0, z: 0}
   prefab: {fileID: 0}
+  boss: {fileID: 0}
 --- !u!95 &3411127697150287732
 Animator:
   serializedVersion: 5

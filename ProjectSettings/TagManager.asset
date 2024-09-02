@@ -13,6 +13,8 @@ TagManager:
   - Boss
   - Audio
   - Menu
+  - PassaFase3
+  - Nba
   layers:
   - Default
   - TransparentFX

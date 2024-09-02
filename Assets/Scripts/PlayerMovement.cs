@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private PlayerTiro tiro;
     public GameObject prefab;
-    AudioManager audioManager;
+    public GameObject boss;
+    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -31,11 +32,17 @@ public class PlayerMovement : MonoBehaviour
         posInicial = transform.position;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !estaPulando)
+        if (boss == null)
+        {
+            boss = GameObject.FindGameObjectWithTag("Boss");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !estaPulando)
         {
             audioManager.PlaySFX(audioManager.jump);
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
@@ -55,14 +62,7 @@ public class PlayerMovement : MonoBehaviour
         {
             estaVivo = false;
         }
-        /*if(!estaVivo)
-        {
-            Destroy(this.gameObject);
-            Instantiate(prefab, PlayerPositionInicial(), Quaternion.identity);
-            player = GameObject.FindGameObjectWithTag("Player");
-            playerMovement = player.GetComponent<PlayerMovement>();
-        }*/
-        
+          
     }
 
     private void FixedUpdate() 
@@ -88,10 +88,22 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("Fase3");
         }
 
-        if(other.gameObject.CompareTag("Buraco"))
+        if (other.gameObject.CompareTag("PassaFase3"))
+        {
+            SceneManager.LoadScene("FaseFinal");
+        }
+
+        if(other.gameObject.CompareTag("Nba"))
+        {
+            if(boss == null)
+            {
+                SceneManager.LoadScene("Agradecimento");
+            }
+        }
+
+        if (other.gameObject.CompareTag("Buraco"))
         {
             estaVivo = false;
-            //Destroy(this.gameObject);
         }
 
         if(other.gameObject.CompareTag("Boss"))

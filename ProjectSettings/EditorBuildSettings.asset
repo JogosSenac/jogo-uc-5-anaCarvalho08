@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase3.unity
     guid: 3660f5e507876d94f9236061a325e1fb
+  - enabled: 1
+    path: Assets/Scenes/FaseFinal.unity
+    guid: 5825fee5e4458314a94004f371653b90
+  - enabled: 1
+    path: Assets/Scenes/Agradecimento.unity
+    guid: a3a30f657f6cada478dce47dd679ede7
   m_configObjects: {}
